@@ -7,7 +7,7 @@ const Title = ({ user }) => {
     <Router>
       <div className='title'>
         <div className='nav'>
-          <h1>ArtGram</h1>
+          <h1>artgram</h1>
           <Route
             path='/login'
             exact
