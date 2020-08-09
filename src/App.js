@@ -4,6 +4,7 @@ import UploadForm from "./comps/UploadForm";
 import ImageGrid from "./comps/ImageGrid";
 import Modal from "./comps/Modal";
 import { auth } from "./firebase/config";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
@@ -19,14 +20,16 @@ function App() {
     });
   }, [user]);
   return (
-    <div className='App'>
-      <Title user={user} />
-      {user && <UploadForm />}
-      <ImageGrid setSelectedImg={setSelectedImg} />
-      {selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
-      )}
-    </div>
+    <Router>
+      <div className='App'>
+        <Title user={user} />
+        {user && <UploadForm />}
+        <ImageGrid setSelectedImg={setSelectedImg} />
+        {selectedImg && (
+          <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+        )}
+      </div>
+    </Router>
   );
 }
 
